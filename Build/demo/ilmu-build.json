@@ -1,0 +1,113 @@
+{
+  "engine": "three",
+  "version": "2.1.4",
+  "animations": "../campus-motions.glb",
+  "defaultAvatar": "prepared-ilmu-character-verified",
+  "avatars": [
+    {
+      "id": "prepared-ilmu-character-verified",
+      "name": "Alya",
+      "url": "../avatars/ilmu-character.glb",
+      "motionLimits": {
+        "torsoDegrees": 4,
+        "neckDegrees": 5,
+        "headDegrees": 12,
+        "nodDegrees": 3,
+        "rollDegrees": 2
+      }
+    },
+    {
+      "id": "ilmu-blouse-skirt",
+      "name": "Hana",
+      "url": "../avatars/ilmu-blouse-skirt.glb",
+      "description": "Outfit and hairstyle variant from the original Blender character"
+    },
+    {
+      "id": "ilmu-sweater-trousers",
+      "name": "Aina",
+      "url": "../avatars/ilmu-sweater-trousers.glb",
+      "description": "Outfit and hairstyle variant from the original Blender character"
+    },
+    {
+      "id": "ilmu-coat-skirt",
+      "name": "Zara",
+      "url": "../avatars/ilmu-coat-skirt.glb",
+      "description": "Outfit and hairstyle variant from the original Blender character",
+      "motionLimits": {
+        "torsoDegrees": 4,
+        "neckDegrees": 5,
+        "headDegrees": 12,
+        "nodDegrees": 3,
+        "rollDegrees": 2
+      }
+    },
+    {
+      "id": "ready-player-me",
+      "name": "Maya",
+      "url": "../avatars/ready-player-me.glb"
+    },
+    {
+      "id": "campus-guide",
+      "name": "Nuri",
+      "url": "../avatars/campus-guide.glb"
+    }
+  ],
+  "animationSet": {
+    "idle": [
+      "Idle"
+    ],
+    "listening": [
+      "Listening"
+    ],
+    "thinking": [
+      "Thinking"
+    ],
+    "talking": [
+      "Talking"
+    ],
+    "gestures": [
+      {
+        "id": "nod",
+        "clips": [
+          "Nod"
+        ],
+        "blend": 0.15
+      }
+    ],
+    "ambient": [
+      {
+        "state": "listening",
+        "gesture": "nod",
+        "minSeconds": 5,
+        "maxSeconds": 12
+      }
+    ],
+    "stateBlend": 0.4,
+    "motionProfile": {
+      "type": "hands-free",
+      "restClip": "Idle",
+      "allowedClips": [
+        "Idle",
+        "Listening",
+        "Thinking",
+        "Talking",
+        "Nod"
+      ]
+    }
+  },
+  "studio": {
+    "local": true,
+    "defaultFraming": "head",
+    "allowedGestures": [
+      "nod"
+    ],
+    "allowedAnimations": [
+      "Idle",
+      "Listening",
+      "Thinking",
+      "Talking",
+      "Nod"
+    ],
+    "portable": true
+  }
+}

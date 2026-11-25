@@ -1,0 +1,28 @@
+/* Original practice content, not official examination questions. */
+window.ILMU_STUDY = {
+  scenarios: [
+    {id:'quick-revision',name:'Aina',initials:'A',subject:'sejarah',minutes:10,
+      ms:{title:'Ulang kaji pantas',description:'Pelajar Tingkatan 5 dengan 10 minit sebelum kelas. Bezakan fakta penting, kemudian uji ingatan.',goal:'Ingat dua tarikh penting dan terangkan perbezaannya.'},
+      en:{title:'A quick revision break',description:'A Form 5 learner with 10 minutes before class. Compare key facts, then check recall.',goal:'Recall two important dates and explain their difference.'}},
+    {id:'step-by-step',name:'Daniel',initials:'D',subject:'math',minutes:15,
+      ms:{title:'Faham setiap langkah',description:'Pelajar Tingkatan 4 yang mahu memahami cara, bukan sekadar jawapan. Cuba dahulu, kemudian semak langkah.',goal:'Selesaikan persamaan kuadratik dan semak puncanya.'},
+      en:{title:'Understand every step',description:'A Form 4 learner who wants the method as well as the answer. Try first, then compare each step.',goal:'Solve a quadratic equation and check both roots.'}},
+    {id:'voice-practice',name:'Mei',initials:'M',subject:'sejarah',minutes:8,
+      ms:{title:'Belajar dengan suara',description:'Pelajar Tingkatan 5 yang suka menerangkan idea secara lisan. Rakam soalan, semak transkrip, kemudian hantar.',goal:'Bina satu soalan yang jelas dan jelaskan jawapan dengan kata sendiri.'},
+      en:{title:'Learn by speaking',description:'A Form 5 learner who prefers explaining aloud. Dictate a question, review the transcript, then send.',goal:'Ask one clear question and explain the answer in your own words.'}}
+  ],
+  questions: [
+    {id:'merdeka-malaysia',subject:'sejarah',topic:{ms:'Pembentukan negara',en:'Nation building'},
+      ms:{question:'Apakah perbezaan antara 31 Ogos 1957 dengan 16 September 1963?',answer:['31 Ogos 1957: Persekutuan Tanah Melayu mencapai kemerdekaan daripada British.','16 September 1963: Malaysia dibentuk melalui penyatuan Persekutuan Tanah Melayu, Sabah, Sarawak dan Singapura.','Bezakan peristiwa: 1957 ialah kemerdekaan Persekutuan Tanah Melayu; 1963 ialah pembentukan Malaysia.'],check:'Cuba sebut kedua-dua tarikh dan peristiwanya tanpa melihat jawapan.'},
+      en:{question:'What is the difference between 31 August 1957 and 16 September 1963?',answer:['31 August 1957: the Federation of Malaya became independent from British rule.','16 September 1963: Malaysia was formed by the Federation of Malaya, Sabah, Sarawak and Singapore.','Distinguish the events: 1957 marks Malayan independence; 1963 marks the formation of Malaysia.'],check:'Recall both dates and their events without looking at the answer.'}},
+    {id:'malayan-union',subject:'sejarah',topic:{ms:'Malayan Union',en:'Malayan Union'},
+      ms:{question:'Jelaskan dua sebab orang Melayu menentang Malayan Union pada tahun 1946.',answer:['Kedaulatan Raja-raja Melayu terjejas: kuasa pentadbiran dipusatkan di bawah Gabenor British, manakala peranan raja-raja menjadi terhad.','Syarat kewarganegaraan yang longgar, termasuk prinsip jus soli, menimbulkan kebimbangan terhadap kedudukan politik orang Melayu.','Jawapan yang baik menyatakan sebab dan menghuraikan kesannya, bukan sekadar menyenaraikan kata kunci.'],check:'Pilih satu sebab dan huraikan hubungan antara perubahan dasar dengan penentangan.'},
+      en:{question:'Explain two reasons why Malays opposed the Malayan Union in 1946.',answer:['The sovereignty of the Malay rulers was weakened: administrative power was centralised under a British Governor and the rulers’ roles were restricted.','Liberal citizenship conditions, including the jus soli principle, raised concerns about the Malays’ political position.','A strong response names a reason and explains its effect, rather than listing keywords alone.'],check:'Choose one reason and explain how the policy change led to opposition.'}},
+    {id:'quadratic',subject:'math',topic:{ms:'Persamaan kuadratik',en:'Quadratic equations'},
+      ms:{question:'Selesaikan x² − 5x + 6 = 0. Tunjukkan pemfaktoran dan semak kedua-dua punca.',answer:['Cari dua nombor dengan hasil darab 6 dan jumlah −5: −2 dan −3.','Faktorkan: (x − 2)(x − 3) = 0. Maka x − 2 = 0 atau x − 3 = 0.','Punca: x = 2 atau x = 3.','Semakan: 2² − 5(2) + 6 = 0 dan 3² − 5(3) + 6 = 0. Kedua-duanya memenuhi persamaan.'],check:'Mengapa kita menetapkan setiap faktor kepada sifar? Terangkan sifat hasil darab sifar.'},
+      en:{question:'Solve x² − 5x + 6 = 0. Show the factorisation and check both roots.',answer:['Find two numbers with product 6 and sum −5: −2 and −3.','Factorise: (x − 2)(x − 3) = 0. Therefore x − 2 = 0 or x − 3 = 0.','The roots are x = 2 or x = 3.','Check: 2² − 5(2) + 6 = 0 and 3² − 5(3) + 6 = 0. Both satisfy the equation.'],check:'Why can each factor be set to zero? Explain the zero-product property.'}},
+    {id:'discount',subject:'math',topic:{ms:'Peratus • asas ulang kaji',en:'Percentages • foundation review'},
+      ms:{question:'Sebuah buku berharga RM80 sebelum diskaun 15%. Berapakah harga selepas diskaun?',answer:['Diskaun = 15% × RM80 = 0.15 × RM80 = RM12.','Harga selepas diskaun = RM80 − RM12 = RM68.','Cara lain: baki harga ialah 85%, jadi 0.85 × RM80 = RM68.'],check:'Jika diskaun berubah kepada 20%, kira harga baharu dan semak bahawa harganya lebih rendah.'},
+      en:{question:'A book costs RM80 before a 15% discount. What is the price after the discount?',answer:['Discount = 15% × RM80 = 0.15 × RM80 = RM12.','Price after discount = RM80 − RM12 = RM68.','Alternatively, 85% of the price remains: 0.85 × RM80 = RM68.'],check:'If the discount changes to 20%, calculate the new price and check that it is lower.'}}
+  ]
+};

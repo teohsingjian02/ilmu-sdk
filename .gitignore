@@ -1,0 +1,9 @@
+.env
+.env.*
+*.pem
+*.key
+google-service-account*.json
+backend/
+logs/
+node_modules/
+*.zip

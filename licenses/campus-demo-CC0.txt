@@ -1,0 +1,24 @@
+SPDX-License-Identifier: CC0-1.0
+
+Campus Guide model and motion library
+
+The Campus Guide model, its procedural geometry, materials, rig, face shapes,
+and six body animations were newly authored for this ILMU project using
+tools/make-campus-demo.py. They contain no imported models, textures,
+motion capture, Mixamo clips or Business Lady content.
+
+To the extent possible under law, the author dedicates these original demo
+assets to the public domain under CC0 1.0 Universal. You may use, modify and
+redistribute them, including as downloadable GLB files, without attribution.
+
+Full dedication and fallback licence:
+https://creativecommons.org/publicdomain/zero/1.0/legalcode.en
+
+The included greeting is generic Malay speech generated using the project's
+OpenAI and Google Cloud Text-to-Speech accounts. It contains no personal data
+or third-party recording. Its text and timing are provided for demonstration;
+the service terms of those providers apply to generated speech.
+
+MMU's name and any university marks are not covered by this dedication.
+The console uses an MMU-inspired colour scheme, without reproducing its logo.
+SDK source and third-party dependencies retain their existing licences.
