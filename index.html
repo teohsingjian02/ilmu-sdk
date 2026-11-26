@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ms">
+<html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ILMU &middot; TM R&amp;D</title><link rel="icon" href="data:,"><link rel="stylesheet" href="fonts/roboto.css"><link rel="stylesheet" href="study.css">
@@ -9,25 +9,25 @@
 <header class="masthead">
  <a class="tm-brand" href="index.html" aria-label="TM R&D"><img src="branding/tm-rnd-logo.png" width="164" height="47" alt="TM R&D"></a>
  <a class="brand" href="index.html">ILMU</a>
- <div class="language-control"><label class="sr-only" for="language" data-ms="Bahasa" data-en="Language">Bahasa</label><select id="language"><option value="ms-MY">Bahasa Melayu</option><option value="en-GB">English</option></select></div>
+ <div class="language-control"><label class="sr-only" for="language" data-ms="Bahasa" data-en="Language">Language</label><select id="language"><option value="en-GB">English</option><option value="ms-MY">Bahasa Melayu</option></select></div>
 </header>
 <main id="access-gate" class="access-gate" hidden>
  <form id="access-form" aria-labelledby="access-title" method="post">
-  <h1 id="access-title" data-ms="Akses demo ILMU" data-en="Access the ILMU demo">Akses demo ILMU</h1>
-  <label for="access-password" class="field-label" data-ms="Kata laluan demo" data-en="Demo password">Kata laluan demo</label>
+  <h1 id="access-title" data-ms="Akses demo ILMU" data-en="Access the ILMU demo">Access the ILMU demo</h1>
+  <label for="access-password" class="field-label" data-ms="Kata laluan demo" data-en="Demo password">Demo password</label>
   <input id="access-password" type="password" required maxlength="256" autocomplete="current-password">
-  <button id="access-submit" type="submit" class="primary" data-ms="Masuk" data-en="Enter">Masuk</button>
+  <button id="access-submit" type="submit" class="primary" data-ms="Masuk" data-en="Enter">Enter</button>
   <p id="access-feedback" role="status" aria-live="polite"></p>
  </form>
 </main>
 <div id="studio" hidden>
 <main class="workspace">
  <section class="preview" aria-label="ILMU avatar">
-  <div class="preview-top"><h1 data-ms="Belajar bersama ILMU" data-en="Learn with ILMU">Belajar bersama ILMU</h1><span id="status" class="status" role="status">Menyediakan avatar</span></div>
+  <div class="preview-top"><h1 data-ms="Belajar bersama ILMU" data-en="Learn with ILMU">Learn with ILMU</h1><span id="status" class="status" role="status" data-ms="Menyediakan avatar" data-en="Preparing avatar">Preparing avatar</span></div>
   <div id="stage"><div id="frame">
    <img class="stage-art" data-src="branding/tm-pattern-square.png" alt="" aria-hidden="true">
    <div id="avatar" aria-label="Animated 3D study companion"></div>
-   <div id="loading"><span class="spinner"></span><span id="loading-text">Menyediakan avatar&hellip;</span></div>
+   <div id="loading"><span class="spinner"></span><span id="loading-text" data-ms="Menyediakan avatar&hellip;" data-en="Preparing avatar&hellip;">Preparing avatar&hellip;</span></div>
    <div id="empty" hidden><strong data-ms="Pilih avatar anda" data-en="Choose your avatar">Pilih avatar anda</strong></div>
    <div id="caption" hidden aria-live="polite"></div>
   </div></div>
@@ -45,7 +45,7 @@
   </nav>
   <div id="notice" role="alert" hidden><span id="notice-text"></span><button id="dismiss-notice" aria-label="Dismiss">&times;</button></div>
   <section id="panel-talk" class="tab-panel" role="tabpanel" aria-labelledby="tab-talk" hidden>
-   <h2 id="talk-title">Soalan berpandu</h2>
+   <h2 id="talk-title" data-ms="Soalan berpandu" data-en="Guided questions">Guided questions</h2>
    <div id="conversation" class="conversation" aria-live="polite" aria-relevant="additions"></div>
    <div class="composer">
     <div id="guided-questions">
@@ -82,7 +82,7 @@
 <h2 data-ms="Studio" data-en="Studio">Studio</h2><label class="setting-row" for="eye-contact"><span data-ms="Pandang kamera" data-en="Face the camera">Pandang kamera</span><input id="eye-contact" type="checkbox" checked></label><div class="setting-row"><label for="colour" data-ms="Warna latar" data-en="Background colour">Warna latar</label><input id="colour" type="color" value="#f5f6fa"></div><label class="setting-row" for="transparent"><span data-ms="Latar lutsinar" data-en="Transparent background">Latar lutsinar</span><input id="transparent" type="checkbox" checked></label><label class="setting-row" for="visible"><span data-ms="Papar avatar" data-en="Show companion">Papar avatar</span><input id="visible" type="checkbox" checked></label>
 <details id="ai-connection" class="advanced"><summary data-ms="Sambungan AI" data-en="AI connection">Sambungan AI</summary><label class="field-label" for="endpoint" data-ms="Alamat pelayan pertuturan" data-en="Speech server address">Alamat pelayan pertuturan</label><input id="endpoint" type="url" placeholder="https://api.example.com/api/chat" spellcheck="false"><button id="check-connection" class="secondary full-width" data-ms="Semak sambungan" data-en="Check connection">Semak sambungan</button><p id="connection-result" class="small-note" role="status" data-ms="Latihan teks dan sampel suara tersedia tanpa sambungan AI." data-en="Text practice and the voice sample work without an AI connection.">Latihan teks dan sampel suara tersedia tanpa sambungan AI.</p></details>
 <details class="advanced"><summary data-ms="Pergerakan avatar" data-en="Avatar movement">Pergerakan avatar</summary><p class="small-note" data-ms="Gerakan terpilih untuk sesi belajar. Animasi ini tidak memainkan suara." data-en="Selected movements for study sessions. These animations do not play speech.">Gerakan terpilih untuk sesi belajar. Animasi ini tidak memainkan suara.</p><div id="gestures" class="button-grid"></div><p id="animation-count" class="small-note"></p><div id="animation-clips" class="animation-grid"></div><button id="stop-animation" class="secondary full-width" disabled data-ms="Henti gerakan" data-en="Stop movement">Henti gerakan</button><p id="animation-status" class="small-note" role="status"></p></details>
-<details class="advanced"><summary data-ms="Ujian bibir untuk pembangun" data-en="Developer lip check">Ujian bibir untuk pembangun</summary><p class="small-note" data-ms="Bunyi dengungan ujian, bukan suara manusia. Corak bibir mengikuti bahasa pilihan." data-en="A test hum, not a human voice. Lip patterns use the selected language.">Bunyi dengungan ujian, bukan suara manusia. Corak bibir mengikuti bahasa pilihan.</p><label class="field-label" for="tone-text" data-ms="Teks ujian" data-en="Test text">Teks ujian</label><textarea id="tone-text" rows="2">Selamat pagi, mari belajar bersama.</textarea><div class="action-row"><button id="tone" class="secondary" disabled data-ms="Uji bentuk bibir" data-en="Test lip shapes">Uji bentuk bibir</button><button id="tone-plain" class="secondary" disabled data-ms="Aras bunyi sahaja" data-en="Sound level only">Aras bunyi sahaja</button></div></details>
+<details class="advanced"><summary data-ms="Ujian bibir untuk pembangun" data-en="Developer lip check">Ujian bibir untuk pembangun</summary><p class="small-note" data-ms="Bunyi dengungan ujian, bukan suara manusia. Corak bibir mengikuti bahasa pilihan." data-en="A test hum, not a human voice. Lip patterns use the selected language.">Bunyi dengungan ujian, bukan suara manusia. Corak bibir mengikuti bahasa pilihan.</p><label class="field-label" for="tone-text" data-ms="Teks ujian" data-en="Test text">Teks ujian</label><textarea id="tone-text" rows="2" data-ms="Selamat pagi, mari belajar bersama." data-en="Good morning, let us learn together.">Good morning, let us learn together.</textarea><div class="action-row"><button id="tone" class="secondary" disabled data-ms="Uji bentuk bibir" data-en="Test lip shapes">Uji bentuk bibir</button><button id="tone-plain" class="secondary" disabled data-ms="Aras bunyi sahaja" data-en="Sound level only">Aras bunyi sahaja</button></div></details>
 
 <details class="advanced"><summary data-ms="Sampel suara" data-en="Voice sample">Sampel suara</summary><button id="sample" class="secondary" disabled data-ms="Main sampel" data-en="Play sample">Main sampel</button></details></section>
  </aside>

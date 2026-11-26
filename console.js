@@ -336,7 +336,7 @@ $('stop').onclick=()=>stopEverything();
 const greetingSamples = new Map();
 $('preview-sample').onclick = () => $('sample').click();
 $('sample').onclick = () => {
-  const path = 'demo/greeting.json';
+  const path = t('demo/greeting.json', 'demo/greeting-en-GB.json');
   performSpeech(async id => {
     if (!greetingSamples.has(path)) {
       const response = await fetch(path);
@@ -418,8 +418,7 @@ $('check-connection').onclick=async()=>{
 };
 function translate() {
   document.documentElement.lang=language==='ms-MY'?'ms':'en';document.title=t('ILMU • Teman Belajar SPM','ILMU • SPM Study Companion');
-  document.querySelectorAll('[data-ms][data-en]').forEach(el=>el.textContent=el.dataset[language==='ms-MY'?'ms':'en']);
-  document.querySelectorAll('[data-ms-placeholder]').forEach(el=>el.placeholder=el.dataset[language==='ms-MY'?'msPlaceholder':'enPlaceholder']);
+  localizeLabels(document, language);
   $('avatars').setAttribute('aria-label',t('Pilih teman belajar','Choose your companion'));
   renderAsk();renderPractice();renderScenarios();renderExchange();if(selectedQuestion)showAnswer(selectedQuestion);if(characterEntries.length)renderCharacters();setPhase(phase);updateMic();
 }

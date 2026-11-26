@@ -1,3 +1,13 @@
+function localizeLabels(root, language) {
+  const english = language === 'en-GB';
+  root.querySelectorAll('[data-ms][data-en]').forEach(el => {
+    el.textContent = english ? el.dataset.en : el.dataset.ms;
+  });
+  root.querySelectorAll('[data-ms-placeholder][data-en-placeholder]').forEach(el => {
+    el.placeholder = english ? el.dataset.enPlaceholder : el.dataset.msPlaceholder;
+  });
+}
+
 (() => {
   'use strict';
   const byId = id => document.getElementById(id);
@@ -26,9 +36,8 @@
     feedbackKey = key;
     const english = language.value === 'en-GB';
     document.documentElement.lang = english ? 'en' : 'ms';
-    gate.querySelectorAll('[data-ms][data-en]').forEach(el => {
-      el.textContent = english ? el.dataset.en : el.dataset.ms;
-    });
+    localizeLabels(document.querySelector('header'), language.value);
+    localizeLabels(gate, language.value);
     feedback.textContent = messages[key]?.[english ? 1 : 0] || '';
   }
 
@@ -56,6 +65,7 @@
   }
 
   async function openStudio() {
+    if (!studioLoading) localizeLabels(studio, language.value);
     gate.hidden = true;
     studio.hidden = false;
     byId('skip-study').hidden = false;
@@ -89,7 +99,7 @@
     return response.json();
   }
 
-  language.value = new URLSearchParams(location.search).get('language') === 'en-GB' ? 'en-GB' : 'ms-MY';
+  language.value = new URLSearchParams(location.search).get('language') === 'ms-MY' ? 'ms-MY' : 'en-GB';
   language.addEventListener('change', () => { if (!gate.hidden) updateGate(); });
   const endpoint = window.ILMU_STUDIO_CONFIG?.speechEndpoint;
   if (endpoint === '') {
