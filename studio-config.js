@@ -1,2 +1,3 @@
-// Set speechEndpoint to your hosted HTTPS chat API to enable live replies.
-window.ILMU_STUDIO_CONFIG = { speechEndpoint: "" };
+window.ILMU_STUDIO_CONFIG = {
+  speechEndpoint: "https://asia-southeast1-unityxrjam.cloudfunctions.net/ilmu-study-api/api/chat"
+};

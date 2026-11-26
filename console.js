@@ -2,7 +2,7 @@
 const $ = id => document.getElementById(id);
 const params = new URLSearchParams(location.search);
 const buildUrl = 'Build';
-let language = params.get('language') === 'en-GB' ? 'en-GB' : 'ms-MY';
+let language = $('language').value;
 let subject = 'sejarah', scenario = null, scenarioIndex = 0, practiceIndex = 0, selectedQuestion = null;
 const t = (ms, en) => language === 'ms-MY' ? ms : en;
 const local = item => item[language === 'ms-MY' ? 'ms' : 'en'];
@@ -14,6 +14,7 @@ const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const canRecognize = !!Recognition && window.isSecureContext;
 $('endpoint').value = window.ILMU_STUDIO_CONFIG?.speechEndpoint || '';
 function speechEndpoint() {
+  if (window.ILMUAccess) return window.ILMUAccess.endpoint;
   try {
     const url = new URL($('endpoint').value.trim());
     return url.protocol === 'https:' && !url.username && !url.password ? url.href : '';
@@ -67,7 +68,7 @@ const avatar = new ILMUAvatar('#avatar', {
 window.avatar = avatar;
 avatar.on('error', message => console.warn('ILMU:', message));
 avatar.on('avatarLoaded', () => { $('empty').hidden = true; });
-avatar.on('speechText', text => {
+function showSpeechText(text) {
   clearTimeout(captionTimer);
   if (speechKind === 'live' && exchange && !exchange.endAt) {
     $('caption').hidden=true;
@@ -75,7 +76,8 @@ avatar.on('speechText', text => {
     if (!liveReply) liveReply = addMessage('ILMU',text,'reply'); else liveReply.querySelector('p').textContent = text;
     renderExchange();
   }else{$('caption').textContent=text;$('caption').hidden=!text;}
-});
+}
+avatar.on('speechText', showSpeechText);
 avatar.on('speechStarted', () => {
   setPhase('talking');
   if (speechKind === 'live' && exchange && !exchange.endAt) { exchange.audioAt = performance.now(); exchange.status = 'speaking'; renderExchange(); }
@@ -301,9 +303,32 @@ $('speak').onclick=()=>{
   avatar.setSpeechEndpoint(speechEndpoint());
   const scenarioContext = scenario?`${scenarioDescription(scenario)} ${t('Matlamat: ','Goal: ')}${local(scenario).goal}`.slice(0,500):'';
   const options = {language, subject, scenario: scenarioContext};
-  performSpeech(() => avatar.speak(message, options), 'live');
+  if (!window.ILMUAccess) {
+    performSpeech(() => avatar.speak(message, options), 'live');
+    return;
+  }
+  performSpeech(async id => {
+    const controller = new AbortController();
+    chatRequest = controller;
+    try {
+      const data = await window.ILMUAccess.chat({message, ...options}, controller.signal);
+      if (id !== speechId) return;
+      if (data.reply) showSpeechText(data.reply);
+      await avatar.speakAudio(data.audioBase64, data.visemes);
+    } finally {
+      if (chatRequest === controller) chatRequest = null;
+    }
+  }, 'live');
 };
+let chatRequest = null;
+window.addEventListener('ilmu-session-locked', () => {
+  stopEverything();
+  $('conversation').replaceChildren();
+  $('message').value = '';
+  exchange = null; renderExchange();
+});
 function stopEverything() {
+  chatRequest?.abort();
   stopRecognition(true);++speechId;
   if(speechKind==='live')finishExchange('cancelled');speechKind=null;avatar.stop();if(ready)avatar.stopAnimation();setBody('idle');clearTimeout(captionTimer);$('caption').hidden=true;controlsBusy(false);if(ready)setPhase(modelLoading?'opening':'idle');
 }
