@@ -1,7 +1,7 @@
 {
   "engine": "three",
   "version": "2.1.4",
-  "animations": "../campus-motions.glb",
+  "animations": "../campus-motions.glb?v=ea2b5e9d74",
   "defaultAvatar": "prepared-ilmu-character-verified",
   "avatars": [
     {
